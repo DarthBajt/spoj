@@ -1,4 +1,7 @@
-/* 14.04.2016 */
+/*
+  created: 14.04.2016
+  edited: 30.04.2016
+*/
 
 #include <stdio.h>
 #include <math.h>
@@ -6,7 +9,8 @@
 int
 main (int argc, char ** argv)
 {
-  int testow, n, i, tab[100], suma, min, l, wynik;
+  int testow, n, i, tab[100], suma, wynik;
+  double srednia, min, l;
   scanf("%d", &testow);
   while (testow--) {
     suma = 0;
@@ -15,12 +19,11 @@ main (int argc, char ** argv)
       scanf("%d", &tab[i]);
       suma += tab[i];
     }
-    suma *= 10;
-    suma /= n;
-    min = abs(suma - tab[0]*10);
+    srednia = (double) suma / n;
+    min = fabs(srednia - tab[0]);
     wynik = tab[0];
     for (i = 1; i < n; ++i) {
-      l = abs(suma - tab[i]*10);
+      l = fabs(srednia - tab[i]);
       if (l < min) {
         min = l;
         wynik = tab[i];
